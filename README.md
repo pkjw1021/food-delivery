@@ -266,9 +266,23 @@ http localhost:8080/orders     # 모든 주문의 상태가 "배송됨"으로 �
 # 운영
 
 ## CI/CD 설정
+*DEPLOY  과정 설명
+  -- Azure 컨테이너 레지스트리 로그인
+   az acr login --name skuser05
+   -- PAY build
+   docker build -t skuser05.azurecr.io/pay:v1 .
+   -- pay push
+   docker push skuser05.azurecr.io/pay:v1 
+   -- pay deployment 생성
+   kubectl create deploy pay --image=skuser05.azurecr.io/pay:v1
+   -- pay service 실행
+   kubectl expose deploy pay --type=ClusterIP --port=8080
+   -- pay service 확인
+   kubectl get all
+   -- 결과물 확인
+   ![image](https://user-images.githubusercontent.com/52017160/109954049-2ea82c00-7d24-11eb-9e22-5e1c0c0f9808.png)
 
 
-각 구현체들은 각자의 source repository 에 구성되었고, 사용한 CI/CD 플랫폼은 GCP를 사용하였으며, pipeline build script 는 각 프로젝트 폴더 이하에 cloudbuild.yml 에 포함되었다.
 
 
 ## 동기식 호출 / 서킷 브레이킹 / 장애격리
