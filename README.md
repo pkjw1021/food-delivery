@@ -107,6 +107,14 @@ public interface RiderMgmtRepository extends PagingAndSortingRepository<RiderMgm
 
 ```
 
+## 5)GATEWAY
+##   5.1) GATEWAY 생성 확인
+    ![image](https://user-images.githubusercontent.com/52017160/109967213-7e8eef00-7d34-11eb-81c4-16ba4d524c4f.png)
+    
+##   5.2) GATEWAY를 통한 riderMgmts, deliveryViews 서비스 확인
+    ![image](https://user-images.githubusercontent.com/52017160/109967862-4a67fe00-7d35-11eb-8c0d-f69a479243e2.png)
+
+
 
 ## 폴리글랏 퍼시스턴스
 
