@@ -153,11 +153,18 @@ hystrix:
 
 
 ## 11) 폴리글랏 퍼시스턴스
-
-riderpage서비스에 기존의 h2 db 에서 hsqldb로 변경하여 사용
-pom.xml파일에 dependency를 변경 하였다.
-
+## riderpage서비스에 기존의 h2 db 에서 hsqldb로 변경하여 사용
+## pom.xml파일에 dependency를 변경 하였다.
 ![image](https://user-images.githubusercontent.com/52017160/109934820-45448800-7d10-11eb-91fc-b47506397e88.png)
+
+## 12) self-healing (liveness probe)
+##    12.1) rider서비스의 deployment.yml 파일에 liveness probe 설정을 8090 바꿈
+![image](https://user-images.githubusercontent.com/52017160/109993624-d850e280-7d4f-11eb-9a98-b6618feb5a8b.png)
+##    12.2) rider서비스에 liveness가 적용된 것을 확인
+![image](https://user-images.githubusercontent.com/52017160/109995150-611c4e00-7d51-11eb-9a28-da91a291fdf6.png)
+##    12.3) rider서비스에 liveness가 발동되었고 Restart가 발생함
+![image](https://user-images.githubusercontent.com/52017160/109995410-9aed5480-7d51-11eb-8636-9f05f572a3ee.png)
+
 
 
 
