@@ -137,6 +137,21 @@ hystrix:
       execution.isolation.thread.timeoutInMilliseconds: 610			
       
 
+
+## 9) Zero-downtime deploy (readiness probe)
+##   9.1) order 서비스의 deployment.yml 파일에 설정 한다
+  ![image](https://user-images.githubusercontent.com/52017160/109991991-2bc23100-7d4e-11eb-9ab2-663dd015c153.png)
+  
+##   9.2) order 서비스 재 배포 시 pod가 2개 뜨고, 새로 띄운 pod가 준비 될 동안 기존 pod 유지
+  root@labs-120884432:/home/project/personal/order/kubernetes# kubectl apply -f deployment.yml
+  deployment.apps/order configured
+  ![image](https://user-images.githubusercontent.com/52017160/109992538-b60a9500-7d4e-11eb-9709-9f924b806fe0.png)
+##   9.3) 재 배포한 order 서비스가 정상 동작 확인
+  ![image](https://user-images.githubusercontent.com/52017160/109992761-ed794180-7d4e-11eb-96f4-997f194be9c0.png)
+
+
+
+
 ## 11) 폴리글랏 퍼시스턴스
 
 riderpage서비스에 기존의 h2 db 에서 hsqldb로 변경하여 사용
