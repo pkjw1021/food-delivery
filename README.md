@@ -106,6 +106,16 @@ public interface RiderMgmtRepository extends PagingAndSortingRepository<RiderMgm
 ![image](https://user-images.githubusercontent.com/52017160/109934240-a324a000-7d0f-11eb-9501-725250dcc4cd.png)
 
 
+## 4)REQ/RESP (동기 호출)
+##   4.1) Delivery서비스의 배달 시작 됐을 시(deliveryStarted) rider서비스의 deliveryaccept 호출 하여 처리 한다.
+##        Controller에 구현하여 처리 함
+##   4.2) delivery 서비스에 동기 호출
+![image](https://user-images.githubusercontent.com/52017160/109969673-83a16d80-7d37-11eb-8e5b-ce8d1ac25341.png)
+##   4.3) delivery 서비스에 external 구현
+![image](https://user-images.githubusercontent.com/52017160/109969864-bcd9dd80-7d37-11eb-8ab1-458f109a162e.png)
+
+
+
 ## 5)GATEWAY
 ##   5.1) GATEWAY 생성 확인
    ![image](https://user-images.githubusercontent.com/52017160/109967213-7e8eef00-7d34-11eb-81c4-16ba4d524c4f.png)
