@@ -123,7 +123,19 @@ public interface RiderMgmtRepository extends PagingAndSortingRepository<RiderMgm
 ##   5.2) GATEWAY를 통한 riderMgmts, deliveryViews 서비스 확인
    ![image](https://user-images.githubusercontent.com/52017160/109967862-4a67fe00-7d35-11eb-8c0d-f69a479243e2.png)
 
+## 7) circuit breaker
+##   7.1) rider서비스 applicationl.yml 파일에 circuit breaker 설정 값 추가
+   ![image](https://user-images.githubusercontent.com/52017160/109979252-092a1b00-7d42-11eb-9e91-4b431c1deda3.png)
+##   7.2) rider서비스 RiderMgmt.java 파일에 부하 테스트를 위한 delay time 추가
+   ![image](https://user-images.githubusercontent.com/52017160/109980766-9752d100-7d43-11eb-9c18-9fcf1960dc97.png)
 
+
+hystrix:
+  command:
+    # 전역설정
+    default:
+      execution.isolation.thread.timeoutInMilliseconds: 610			
+      
 
 ## 11) 폴리글랏 퍼시스턴스
 
