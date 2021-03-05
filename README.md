@@ -144,7 +144,18 @@ hystrix:
     # 전역설정
     default:
       execution.isolation.thread.timeoutInMilliseconds: 610			
-      
+
+## 8) Autoscale (HPA)
+##   8.1) 부하를 걸기 위해 리소스 줄여서 재 배포 (rider 서비스)  
+  ![image](https://user-images.githubusercontent.com/52017160/110058489-be41ef00-7da5-11eb-8430-3756e1234585.png)
+##   8.2) rider 시스템에 replica를 자동으로 늘려줄 수 있도록 HPA를 설정( CPU 사용량이 15%를 넘을 경우 replica를 10개까지 늘려 줌)
+  ![image](https://user-images.githubusercontent.com/52017160/110060285-06164580-7da9-11eb-803f-8883a756bdb3.png)
+##   8.3) 부하 가중 중
+  ![image](https://user-images.githubusercontent.com/52017160/110060398-33fb8a00-7da9-11eb-87b8-b288226bd64b.png)
+##   8.4) Autoscale 확인  
+##        Autoscale되어 target에는 200% 증가 했으며, pod가 여러개로 증가한 모습을 볼 수 있다.
+  ![image](https://user-images.githubusercontent.com/52017160/110060489-59889380-7da9-11eb-984d-d12dff08cf1f.png)
+
 
 
 ## 9) Zero-downtime deploy (readiness probe)
