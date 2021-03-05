@@ -97,10 +97,7 @@ public interface RiderMgmtRepository extends PagingAndSortingRepository<RiderMgm
 
 }
 ```
-- 적용 후 REST API 의 테스트
 
-#rider 서비스 처리, riderpage 서비스 처리
-![image](https://user-images.githubusercontent.com/52017160/109934240-a324a000-7d0f-11eb-9501-725250dcc4cd.png)
 
 ## 2) CQRS
 ##   2.1) rider들의 정보를 볼수 있는 조회용 페이지 riderpage서비스 개발 
