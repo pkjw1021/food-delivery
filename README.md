@@ -150,6 +150,17 @@ hystrix:
   ![image](https://user-images.githubusercontent.com/52017160/109992761-ed794180-7d4e-11eb-96f4-997f194be9c0.png)
 
 
+## 10) ConfigMap 적용
+##   10.1) delivery 서비스의 application.yaml에 ConfigMap 적용 대상 항목 추가
+  ![image](https://user-images.githubusercontent.com/52017160/110050456-3ce36000-7d97-11eb-9aa9-007cd0a1d591.png)
+##   10.2) delivery 서비스의 deployment.yaml에 ConfigMap 적용 대상 항목 추가
+  ![image](https://user-images.githubusercontent.com/52017160/110050537-71571c00-7d97-11eb-85e7-b536c5ddf17c.png)
+##   10.3) ConfigMap 생성  
+  ![image](https://user-images.githubusercontent.com/52017160/110050715-d743a380-7d97-11eb-917c-13ccee332929.png)
+##   10.4) ConfigMap 생성 확인
+  ![image](https://user-images.githubusercontent.com/52017160/110050752-ec203700-7d97-11eb-80df-c82bdbc64c97.png)
+##   10.5) 소스 안에 ConfigMap 사용 하여 구동함
+  ![image](https://user-images.githubusercontent.com/52017160/110050808-0823d880-7d98-11eb-98d0-f61642ea48bd.png)
 
 
 ## 11) 폴리글랏 퍼시스턴스
