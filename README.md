@@ -105,6 +105,13 @@ public interface RiderMgmtRepository extends PagingAndSortingRepository<RiderMgm
 #rider 서비스 처리, riderpage 서비스 처리
 ![image](https://user-images.githubusercontent.com/52017160/109934240-a324a000-7d0f-11eb-9501-725250dcc4cd.png)
 
+## 2) CQRS
+##   2.1) rider들의 정보를 볼수 있는 조회용 페이지 riderpage서비스 개발 
+![image](https://user-images.githubusercontent.com/52017160/110056550-635ac880-7da2-11eb-9856-c52e7be42d18.png)
+
+## 3) Correlation
+## MSA 서비스 구현하면 했다고 보는 항목
+
 
 ## 4)REQ/RESP (동기 호출)
 ##   4.1) Delivery서비스의 배달 시작 됐을 시(deliveryStarted) rider서비스의 deliveryaccept 호출 하여 처리 한다.
@@ -113,6 +120,8 @@ public interface RiderMgmtRepository extends PagingAndSortingRepository<RiderMgm
 ![image](https://user-images.githubusercontent.com/52017160/109969673-83a16d80-7d37-11eb-8e5b-ce8d1ac25341.png)
 ##   4.3) delivery 서비스에 external 구현
 ![image](https://user-images.githubusercontent.com/52017160/109969864-bcd9dd80-7d37-11eb-8ab1-458f109a162e.png)
+##   4.4) 정상적으로 작동 되는 거 확인
+![image](https://user-images.githubusercontent.com/52017160/110056730-ad43ae80-7da2-11eb-9294-20fcdd639944.png)
 
 
 
