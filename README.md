@@ -5,10 +5,7 @@
 
 ![image](https://user-images.githubusercontent.com/52017160/109935383-e2072580-7d10-11eb-9da0-0a7f6c1f3877.png)
 
-**1) DDD 의 적용**
-
-- 각 서비스내에 도출된 핵심 Aggregate Root 객체를 Entity 로 선언하였다: (예시는 pay 마이크로 서비스). 이때 가능한 현업에서 사용하는 언어 (유비쿼터스 랭귀지)를 그대로 사용하려고 노력했다. 하지만, 일부 구현에 있어서 영문이 아닌 경우는 실행이 불가능한 경우가 있기 때문에 계속 사용할 방법은 아닌것 같다. (Maven pom.xml, Kafka의 topic id, FeignClient 의 서비스 id 등은 한글로 식별자를 사용하는 경우 오류가 발생하는 것을 확인하였다)
- 
+**1) DDD 의 적용** 
 ```
 package crazyshoppingmall;
 
@@ -124,13 +121,28 @@ public interface RiderMgmtRepository extends PagingAndSortingRepository<RiderMgm
 ![image](https://user-images.githubusercontent.com/52017160/110056730-ad43ae80-7da2-11eb-9294-20fcdd639944.png)
 
 
-
 ## 5)GATEWAY
 ##   5.1) GATEWAY 생성 확인
    ![image](https://user-images.githubusercontent.com/52017160/109967213-7e8eef00-7d34-11eb-81c4-16ba4d524c4f.png)
     
 ##   5.2) GATEWAY를 통한 riderMgmts, deliveryViews 서비스 확인
    ![image](https://user-images.githubusercontent.com/52017160/109967862-4a67fe00-7d35-11eb-8c0d-f69a479243e2.png)
+
+## 6) DEPLOY  과정 설명
+##  -- Azure 컨테이너 레지스트리 로그인
+##   az acr login --name skuser05
+##   -- PAY build
+##   docker build -t skuser05.azurecr.io/pay:v1 .
+##   -- pay push
+##   docker push skuser05.azurecr.io/pay:v1 
+##   -- pay deployment 생성
+##   kubectl create deploy pay --image=skuser05.azurecr.io/pay:v1
+##   -- pay service 실행
+##   kubectl expose deploy pay --type=ClusterIP --port=8080
+##   -- pay service 확인
+##   kubectl get all
+##   -- 결과물 확인
+  ![image](https://user-images.githubusercontent.com/52017160/109954049-2ea82c00-7d24-11eb-9e22-5e1c0c0f9808.png)
 
 ## 7) circuit breaker
 ##   7.1) rider서비스 applicationl.yml 파일에 circuit breaker 설정 값 추가
@@ -345,24 +357,6 @@ http localhost:8080/orders     # 모든 주문의 상태가 "배송됨"으로 �
 ```
 
 
-# 운영
-
-## CI/CD 설정
-*DEPLOY  과정 설명
-  -- Azure 컨테이너 레지스트리 로그인
-   az acr login --name skuser05
-   -- PAY build
-   docker build -t skuser05.azurecr.io/pay:v1 .
-   -- pay push
-   docker push skuser05.azurecr.io/pay:v1 
-   -- pay deployment 생성
-   kubectl create deploy pay --image=skuser05.azurecr.io/pay:v1
-   -- pay service 실행
-   kubectl expose deploy pay --type=ClusterIP --port=8080
-   -- pay service 확인
-   kubectl get all
-   -- 결과물 확인
-   ![image](https://user-images.githubusercontent.com/52017160/109954049-2ea82c00-7d24-11eb-9e22-5e1c0c0f9808.png)
 
 
 
